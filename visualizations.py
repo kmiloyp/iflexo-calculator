@@ -1,7 +1,10 @@
+
+import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 from typing import Dict, List
 
+@st.cache_data
 def create_costos_comparison(ahorros: Dict[str, float]) -> go.Figure:
     """Crear gráfico de barras para comparar los diferentes tipos de ahorro."""
     categorias = {
