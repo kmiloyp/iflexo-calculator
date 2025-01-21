@@ -7,6 +7,7 @@ from visualizations import (
     create_tinta_comparison
 )
 from pdf_report import generate_pdf_report
+from PIL import Image
 
 # Configuración de la página
 st.set_page_config(
@@ -38,26 +39,20 @@ st.markdown("""
             padding: 8px 4px;
         }
     }
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 20px;
-    }
-    .logo-container img {
-        max-width: 200px;
-        height: auto;
-    }
     </style>
     """, unsafe_allow_html=True)
 
 # Logo y título
-st.markdown("""
-    <div class="logo-container">
-        <img src="attached_assets/iflexo6-sm-kit.jpg" alt="iFlexo Logo">
-        <h1>Calculadora de Eficiencia en Costos de Impresión</h1>
-    </div>
-    """, unsafe_allow_html=True)
+col1, col2 = st.columns([1, 3])
+with col1:
+    try:
+        image = Image.open("attached_assets/iflexo6-sm-kit.jpg")
+        st.image(image, width=200)
+    except Exception as e:
+        st.error(f"Error al cargar el logo: {str(e)}")
+
+with col2:
+    st.title("Calculadora de Eficiencia en Costos de Impresión")
 
 st.markdown("""
 Esta calculadora te ayuda a determinar los ahorros potenciales en tu proceso de impresión,
