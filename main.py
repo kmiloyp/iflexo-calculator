@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-from io import StringIO, BytesIO
+from io import BytesIO
 from PIL import Image
 import os
 
@@ -10,8 +10,7 @@ def main():
     st.set_page_config(
         page_title="Calculadora de Eficiencia en Costos de Impresión",
         page_icon="💰",
-        layout="wide",
-        initial_sidebar_state="collapsed"
+        layout="wide"
     )
 
     # Cargar y mostrar el logo
@@ -46,7 +45,6 @@ def main():
     with tabs[0]:
         st.header("Resumen de Costos")
 
-        # Crear columnas para métricas
         col1, col2 = st.columns(2)
 
         with col1:
