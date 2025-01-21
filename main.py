@@ -20,23 +20,43 @@ st.set_page_config(
 # Estilos personalizados para mejorar la responsividad
 st.markdown("""
     <style>
+    .main {
+        font-size: 14px;
+        line-height: 1.4;
+    }
     .stTabs [data-baseweb="tab-list"] {
-        gap: 2px;
+        gap: 1px;
         flex-wrap: wrap;
     }
     .stTabs [data-baseweb="tab"] {
         white-space: pre-wrap;
         min-width: 100px;
         flex-grow: 1;
-        padding: 10px 5px;
+        padding: 8px 4px;
+        font-size: 13px;
     }
     .stTabs [data-baseweb="tab-list"] button {
+        font-size: 13px;
+    }
+    .streamlit-expanderHeader {
         font-size: 14px;
+    }
+    .stMarkdown {
+        font-size: 14px;
+    }
+    .stMetric {
+        font-size: 13px;
+    }
+    .stMetric > div {
+        font-size: 24px;
     }
     @media (max-width: 640px) {
         .stTabs [data-baseweb="tab"] {
             font-size: 12px;
-            padding: 8px 4px;
+            padding: 6px 3px;
+        }
+        .stMetric > div {
+            font-size: 20px;
         }
     }
     </style>
@@ -87,9 +107,9 @@ with tabs[0]:
     col1, col2 = st.columns(2)
 
     with col1:
-        st.metric("Ahorro en Costo de Planchas", f"${st.session_state.ahorros['planchas']:,.1f} /año")
-        st.metric("Ahorro en Velocidad de Ajuste", f"${st.session_state.ahorros['velocidad_ajuste']:,.1f} /año")
-        st.metric("Ahorro en Velocidad de Impresión", f"${st.session_state.ahorros['velocidad_impresion']:,.1f} /año")
+        st.metric("Ahorro en Costo de Planchas", f"${int(st.session_state.ahorros['planchas']):,} /año")
+        st.metric("Ahorro en Velocidad de Ajuste", f"${int(st.session_state.ahorros['velocidad_ajuste']):,} /año")
+        st.metric("Ahorro en Velocidad de Impresión", f"${int(st.session_state.ahorros['velocidad_impresion']):,} /año")
 
     with col2:
         st.metric("Ahorro en Tinta Blanca", f"${st.session_state.ahorros['tinta_blanca']:,.1f} /año")
