@@ -15,7 +15,7 @@ def generate_pdf_report(ahorros: Dict[str, float], datos_entrada: Dict) -> Bytes
     styles = getSampleStyleSheet()
 
     # Logo
-    logo = Image("attached_assets/iflexo6-sm-kit.jpg", width=200, height=100)
+    logo = Image("attached_assets/iflexo6-sm-kit.jpg", width=150, height=50)
     story.append(logo)
     story.append(Spacer(1, 12))
 
@@ -23,7 +23,7 @@ def generate_pdf_report(ahorros: Dict[str, float], datos_entrada: Dict) -> Bytes
     title_style = ParagraphStyle(
         'CustomTitle',
         parent=styles['Heading1'],
-        fontSize=24,
+        fontSize=20,
         spaceAfter=30
     )
     story.append(Paragraph("Reporte de Análisis de Eficiencia en Costos", title_style))
@@ -64,11 +64,18 @@ def generate_pdf_report(ahorros: Dict[str, float], datos_entrada: Dict) -> Bytes
     # Descripción de iFlexo
     story.append(Paragraph("Solución iFlexo", styles['Heading2']))
     iflexo_text = """
-    Estos resultados han sido calculados considerando la implementación integral de la tecnología 
-    y servicios de iFlexo Visión Gráfica. Nuestro enfoque no solo incluye tecnología de planchas 
-    de última generación, sino también un acompañamiento experto durante todo el proceso de 
-    implementación en prensa, asegurando que cada una de estas mejoras se materialice de 
-    manera efectiva en su operación.
+    Si bien el costo por cm² de nuestras planchas puede ser superior al de la competencia, 
+    este análisis demuestra cómo la calidad superior y la tecnología avanzada de iFlexo 
+    generan ahorros significativos en otras áreas críticas de su operación:
+
+    • Reducción en tiempos de ajuste y setup
+    • Mayor velocidad de impresión
+    • Menor desperdicio de material
+    • Reducción en el consumo de tintas
+    • Menor tiempo de paradas no programadas
+
+    La inversión en planchas iFlexo se recupera rápidamente a través de estas eficiencias 
+    operativas, resultando en un beneficio neto positivo para su operación.
     """
     story.append(Paragraph(iflexo_text, styles['Normal']))
     story.append(Spacer(1, 12))
